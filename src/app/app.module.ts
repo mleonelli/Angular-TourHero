@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeroDetailComponent } from "./hero-details.component";
 import { HeroesComponent } from './heroes.component';
 import { HeroService } from "./hero.service";
+import { DashboardComponent } from "./dashboard.component";
 
 
 
@@ -17,12 +18,25 @@ import { HeroService } from "./hero.service";
     FormsModule, 
     RouterModule.forRoot([
       {
+          path: '',
+          redirectTo: '/dashboard',
+          pathMatch: 'full'
+      },
+      {
         path: 'heroes',
         component: HeroesComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
       }
     ]) 
   ],
-  declarations: [ AppComponent, HeroDetailComponent, HeroesComponent ],
+  declarations: [ 
+    AppComponent, 
+    DashboardComponent, 
+    HeroDetailComponent, 
+    HeroesComponent ],
   providers:    [ HeroService ],
   bootstrap:    [ AppComponent ]
 })
